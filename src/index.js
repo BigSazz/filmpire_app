@@ -10,12 +10,12 @@ import store from './app/store';
 const theme = createTheme({});
 
 ReactDOM.render(
-	<Provider store={store}>
-		<ThemeProvider theme={theme}>
-			<Router>
-				<App />
-			</Router>
-		</ThemeProvider>
-	</Provider>,
-	document.getElementById('root')
+    <Provider store={store}>
+        <ThemeProvider theme={theme}>
+            <Router>
+                <App />
+            </Router>
+        </ThemeProvider>
+    </Provider>,
+    document.getElementById('root'),
 );
