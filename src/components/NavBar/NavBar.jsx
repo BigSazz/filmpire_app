@@ -17,7 +17,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
-import { Sidebar } from '..';
+import { Sidebar, Search } from '..';
 
 import useStyles from './styles';
 
@@ -36,24 +36,24 @@ const NavBar = () => {
                 <Toolbar className={classes.toolbar}>
                     {isMobile && (
                         <IconButton
-                          color="inherit"
-                          edge="start"
-                          style={{ outline: 'none' }}
-                          onClick={() => {
+                            color="inherit"
+                            edge="start"
+                            style={{ outline: 'none' }}
+                            onClick={() => {
                                 console.log('menu CLICKED!!!!!!!!!');
                                 setMobileOpen(
                                     (prevMobileOpen) => !prevMobileOpen,
                                 );
                             }}
-                          className={classes.menuButton}
+                            className={classes.menuButton}
                         >
                             <Menu />
                         </IconButton>
                     )}
                     <IconButton
-                      color="inherit"
-                      sx={{ ml: 1 }}
-                      onClick={() => {}}
+                        color="inherit"
+                        sx={{ ml: 1 }}
+                        onClick={() => {}}
                     >
                         {theme.palette.type === 'dark' ? (
                             <Brightness7 />
@@ -61,7 +61,7 @@ const NavBar = () => {
                             <Brightness4 />
                         )}
                     </IconButton>
-                    {!isMobile && 'Search...'}
+                    {!isMobile && <Search />}
                     <div>
                         {!isAuthenticated ? (
                             <Button color="inherit" onClick={() => {}}>
@@ -69,44 +69,44 @@ const NavBar = () => {
                             </Button>
                         ) : (
                             <Button
-                              color="inherit"
-                              component={Link}
-                              to="/profile/:id"
-                              className={classes.linkButton}
-                              onClick={() => {}}
+                                color="inherit"
+                                component={Link}
+                                to="/profile/:id"
+                                className={classes.linkButton}
+                                onClick={() => {}}
                             >
                                 {!isMobile && <>My Movies &nbsp;</>}
                                 <Avatar
-                                  style={{ width: 30, height: 30 }}
-                                  alt="Profile"
-                                  src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                    style={{ width: 30, height: 30 }}
+                                    alt="Profile"
+                                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                                 />
                             </Button>
                         )}
                     </div>
-                    {isMobile && 'Search...'}
+                    {isMobile && <Search />}
                 </Toolbar>
             </AppBar>
             <div>
                 <nav className={classes.drawer}>
                     {isMobile ? (
                         <Drawer
-                          variant="temporary"
-                          anchor="right"
-                          open={mobileOpen}
-                          onClose={() => setMobileOpen(
+                            variant="temporary"
+                            anchor="right"
+                            open={mobileOpen}
+                            onClose={() => setMobileOpen(
                                 (prevMobileOpen) => !prevMobileOpen,
                             )}
-                          classes={{ paper: classes.drawerPaper }}
-                          ModalProps={{ keepMounted: true }}
+                            classes={{ paper: classes.drawerPaper }}
+                            ModalProps={{ keepMounted: true }}
                         >
                             <Sidebar setMobileOpen={setMobileOpen} />
                         </Drawer>
                     ) : (
                         <Drawer
-                          variant="permanent"
-                          open
-                          classes={{ paper: classes.drawerPaper }}
+                            variant="permanent"
+                            open
+                            classes={{ paper: classes.drawerPaper }}
                         >
                             <Sidebar setMobileOpen={setMobileOpen} />
                         </Drawer>
